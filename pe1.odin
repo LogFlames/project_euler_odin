@@ -5,7 +5,7 @@ import "core:fmt"
 main :: proc() {
     count := 0;
 
-    for i := 0; i <= 1000; i += 1 {
+    for i in 0..1000 {
         if i % 3 == 0 || i % 5 == 0 {
             count += i;
         }
