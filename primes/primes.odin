@@ -35,3 +35,29 @@ generate_primes :: proc(n: int) -> [dynamic]int {
 
     return primes;
 }
+
+generate_n_primes :: proc(n: int) -> [dynamic]int {
+    primes := make([dynamic]int, 0, n);
+    append(&primes, 2);
+
+    primeInd := 1;
+    testPrime := 3;
+    for primeInd < n {
+        isPrime := true;
+        for prevPrime in primes {
+            if testPrime % prevPrime == 0 {
+                isPrime = false;
+                break;
+            }
+        }
+
+        if isPrime {
+            append(&primes, testPrime);
+            primeInd += 1;
+        }
+
+        testPrime += 2;
+    }
+
+    return primes;
+}
